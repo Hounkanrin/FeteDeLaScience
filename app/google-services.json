@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "473073832455",
+    "firebase_url": "https://fete-de-la-science-b429a.firebaseio.com",
+    "project_id": "fete-de-la-science-b429a",
+    "storage_bucket": "fete-de-la-science-b429a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:473073832455:android:fc686503d74bea29",
+        "android_client_info": {
+          "package_name": "fr.istic.ccn2.ftedelascience"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "473073832455-gjim8b3prmb5ctvtcn4sk7h3n4bsjgkt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "fr.istic.ccn2.ftedelascience",
+            "certificate_hash": "66380dc66bd59e723ae013a040e1866d54153be3"
+          }
+        },
+        {
+          "client_id": "473073832455-2po8o61t438vq85uo9nd582t4bt2qj3a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0j45VD_WdZzXmRfAj9vTsfqw049DG5eY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "473073832455-2po8o61t438vq85uo9nd582t4bt2qj3a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
