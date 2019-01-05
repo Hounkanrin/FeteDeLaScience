@@ -1,2 +1,2 @@
 # FeteDeLaScience 
-exploitaion des données OpenData de la fête de la science 
+Exploitation des données OpenData de la fête de la science
