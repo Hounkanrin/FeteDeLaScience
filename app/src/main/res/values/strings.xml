@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Fête de la Science</string>
+    <string name="title_event">Evenement</string>
+    <string name="filter"></string>
+
+
+<!--filter-->
+    <string-array name="filter_array">
+        <item>Lieu</item>
+        <item>Thème</item>
+        <item>Date</item>
+        <item>Mots clés</item>
+    </string-array>
 </resources>
