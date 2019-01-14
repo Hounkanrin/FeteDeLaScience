@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -40,10 +39,8 @@ public class EventRecyclerAdapater extends RecyclerView.Adapter<EventRecyclerAda
         myViewHolder.titre.setText(event.getTitre());
         myViewHolder.thematiques.setText(event.getThematiques());
         myViewHolder.description.setText(event.getDescription());
-        myViewHolder.nbPlaces.setText(event.getNbPlaces());
-        myViewHolder.placeMax.setText(event.getPlaceMax());
-        myViewHolder.periode.setText(event.getPeriode());
-        Picasso.get().load(event.getImage()).into(myViewHolder.image);
+        //myViewHolder.periode.setText(event.getPeriode());
+       // Picasso.get().load(event.getImage()).into(myViewHolder.image);
 
 
     }
@@ -58,7 +55,7 @@ public class EventRecyclerAdapater extends RecyclerView.Adapter<EventRecyclerAda
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
        TextView nbPlaces;
-       ImageView image;
+       //ImageView image;
        TextView  placeMax;
        TextView  periode;
        TextView description;
@@ -67,10 +64,10 @@ public class EventRecyclerAdapater extends RecyclerView.Adapter<EventRecyclerAda
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            nbPlaces = itemView.findViewById(R.id.places);
-            image =  itemView.findViewById(R.id.event_image);
-            placeMax = itemView.findViewById(R.id.placeMax);
-            periode = itemView.findViewById(R.id.period);
+           // nbPlaces = itemView.findViewById(R.id.places);
+            //image =  itemView.findViewById(R.id.event_image);
+            //placeMax = itemView.findViewById(R.id.placeMax);
+           // periode = itemView.findViewById(R.id.period);
             description = itemView.findViewById(R.id.description);
             thematiques = itemView.findViewById(R.id.thematique);
             titre = itemView.findViewById(R.id.title);

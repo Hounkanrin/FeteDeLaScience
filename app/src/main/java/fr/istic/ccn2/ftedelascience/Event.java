@@ -5,52 +5,30 @@ public class Event {
     private int id;
     //private String apercu;
     //private String identifiant;
-    private String nbPlaces;
-    private String image;
-    private String placeMax;
+    //private String nbPlaces;
+    //private String image;
+    //private String placeMax;
     private String periode;
     private String description;
-    private String titre;
+    private String titre_fr;
     private String thematiques;
-    private boolean permission;
 
-    public Event(String nbPlaces, String image, String placeMax, String periode, String description, String titre, String thematiques, boolean permission) {
-        this.nbPlaces = nbPlaces;
-        this.image = image;
-        this.placeMax = placeMax;
-        this.periode = periode;
+
+    public Event (String description,  String thematiques,String titre) {
+        //this.nbPlaces = nbPlaces;
+        //this.image = image;
+        //  this.placeMax = placeMax;
+        //  this.periode = periode;
         this.description = description;
-        this.titre = titre;
+        this.titre_fr = titre;
         this.thematiques = thematiques;
-        this.permission = permission;
     }
 
     public Event() {
     }
 
-    public String getNbPlaces() {
-        return nbPlaces;
-    }
 
-    public void setNbPlaces(String nbPlaces) {
-        this.nbPlaces = nbPlaces;
-    }
 
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public String getPlaceMax() {
-        return placeMax;
-    }
-
-    public void setPlaceMax(String placeMax) {
-        this.placeMax = placeMax;
-    }
 
     public String getPeriode() {
         return periode;
@@ -69,11 +47,11 @@ public class Event {
     }
 
     public String getTitre() {
-        return titre;
+        return titre_fr;
     }
 
     public void setTitre(String titre) {
-        this.titre = titre;
+        this.titre_fr = titre;
     }
 
     public String getThematiques() {
@@ -84,13 +62,6 @@ public class Event {
         this.thematiques = thematiques;
     }
 
-    public boolean isPermission() {
-        return permission;
-    }
-
-    public void setPermission(boolean permission) {
-        this.permission = permission;
-    }
 
     /*
     private String region;
