@@ -3,39 +3,34 @@ package fr.istic.ccn2.ftedelascience;
 public class Event {
 
     private int id;
-    //private String apercu;
+    private String apercu;
     //private String identifiant;
     //private String nbPlaces;
-    //private String image;
     //private String placeMax;
-    private String periode;
+  //  private String periode;
     private String description;
     private String titre_fr;
     private String thematiques;
+    private String ville;
 
 
-    public Event (String description,  String thematiques,String titre) {
-        //this.nbPlaces = nbPlaces;
-        //this.image = image;
-        //  this.placeMax = placeMax;
-        //  this.periode = periode;
+    public Event(String apercu, String description, String titre_fr, String thematiques, String ville) {
+        this.apercu = apercu;
         this.description = description;
-        this.titre_fr = titre;
+        this.titre_fr = titre_fr;
         this.thematiques = thematiques;
+        this.ville = ville;
     }
 
     public Event() {
     }
 
-
-
-
-    public String getPeriode() {
-        return periode;
+    public String getApercu() {
+        return apercu;
     }
 
-    public void setPeriode(String periode) {
-        this.periode = periode;
+    public void setApercu(String apercu) {
+        this.apercu = apercu;
     }
 
     public String getDescription() {
@@ -46,12 +41,12 @@ public class Event {
         this.description = description;
     }
 
-    public String getTitre() {
+    public String getTitre_fr() {
         return titre_fr;
     }
 
-    public void setTitre(String titre) {
-        this.titre_fr = titre;
+    public void setTitre_fr(String titre_fr) {
+        this.titre_fr = titre_fr;
     }
 
     public String getThematiques() {
@@ -62,6 +57,13 @@ public class Event {
         this.thematiques = thematiques;
     }
 
+    public String getVille() {
+        return ville;
+    }
+
+    public void setVille(String ville) {
+        this.ville = ville;
+    }
 
     /*
     private String region;

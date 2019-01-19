@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -43,10 +44,13 @@ public class Event_Activity extends AppCompatActivity {
         });*/
 
         recyclerView = (RecyclerView) findViewById(R.id.event_recyclerView);
+       // GridLayoutManager myGridLayoutManager = new GridLayoutManager(MainActivity.this, 1);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         eventList = new ArrayList<Event>();
-
-        reference = FirebaseDatabase.getInstance().getReference().child("fields");
+        recyclerView.setHasFixedSize(true);
+        eventRecyclerAdapater = new EventRecyclerAdapater(Event_Activity.this, eventList);
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+        reference = FirebaseDatabase.getInstance().getReference().child("Filds");
         reference.addValueEventListener(new ValueEventListener() {
 
             @Override

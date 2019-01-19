@@ -1,7 +1,9 @@
 package fr.istic.ccn2.ftedelascience;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -28,19 +32,31 @@ public class EventRecyclerAdapater extends RecyclerView.Adapter<EventRecyclerAda
 
     @NonNull
     @Override
-    public EventRecyclerAdapater.MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return new MyViewHolder(LayoutInflater.from(context).inflate(R.layout.eventcardview_,viewGroup, false));
+    public EventRecyclerAdapater.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
+        View myView = LayoutInflater.from(parent.getContext()).inflate(R.layout.eventcardview_, parent, false);
+        return new MyViewHolder(myView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull EventRecyclerAdapater.MyViewHolder myViewHolder, int i) {
+    public void onBindViewHolder(@NonNull final EventRecyclerAdapater.MyViewHolder myViewHolder, final int i) {
         Log.d(TAG, "onBindViewHolder: called,");
         Event event = eventList.get(i);
-        myViewHolder.titre.setText(event.getTitre());
+        myViewHolder.titre.setText(event.getTitre_fr());
         myViewHolder.thematiques.setText(event.getThematiques());
-        myViewHolder.description.setText(event.getDescription());
-        //myViewHolder.periode.setText(event.getPeriode());
-       // Picasso.get().load(event.getImage()).into(myViewHolder.image);
+       // myViewHolder.description.setText(event.getDescription());
+       Picasso.get().load(event.getApercu()).into(myViewHolder.apercu);
+
+       myViewHolder.cardView.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Intent intent = new Intent(context, Event.class);
+               intent.putExtra("Titre", eventList.get(myViewHolder.getAdapterPosition()).getTitre_fr()).toString();
+               intent.putExtra("Ville", eventList.get(myViewHolder.getAdapterPosition()).getVille()).toString();
+               intent.putExtra("description", eventList.get(myViewHolder.getAdapterPosition()).getDescription()).toString();
+               intent.putExtra("apercu", eventList.get(myViewHolder.getAdapterPosition()).getApercu()).toString();
+               intent.putExtra("thematiques", eventList.get(myViewHolder.getAdapterPosition()).getThematiques()).toString();
+           }
+       });
 
 
     }
@@ -54,22 +70,21 @@ public class EventRecyclerAdapater extends RecyclerView.Adapter<EventRecyclerAda
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-       TextView nbPlaces;
-       //ImageView image;
-       TextView  placeMax;
-       TextView  periode;
+       CardView cardView;
+       TextView ville;
+       ImageView apercu;
+       //TextView  placeMax;
        TextView description;
        TextView titre;
        TextView thematiques;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-           // nbPlaces = itemView.findViewById(R.id.places);
-            //image =  itemView.findViewById(R.id.event_image);
-            //placeMax = itemView.findViewById(R.id.placeMax);
-           // periode = itemView.findViewById(R.id.period);
+            cardView = itemView.findViewById(R.id.cardview);
+           ville = itemView.findViewById(R.id.ville);
+            apercu =  itemView.findViewById(R.id.apercu);
             description = itemView.findViewById(R.id.description);
-            thematiques = itemView.findViewById(R.id.thematique);
+            thematiques = itemView.findViewById(R.id.thematiques);
             titre = itemView.findViewById(R.id.title);
 
         }
