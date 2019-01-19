@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Fête de la Science</string>
+    <string name="ville">Ville</string>
+    <string name="thematiques">Thematiques</string>
+    <string name="titre">Titre</string>
 </resources>
