@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">Fête de la Science</string>
     <string name="title_activity_event_">fte de la Science</string>
+    <string name="titre">Titre</string>
+    <string name="thematique">Thématique</string>
+    <string name="ville">Ville</string>
+    <string name="filter">Filtre</string>
+
 
 
 
