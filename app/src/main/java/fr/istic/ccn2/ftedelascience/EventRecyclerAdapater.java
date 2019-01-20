@@ -43,18 +43,18 @@ public class EventRecyclerAdapater extends RecyclerView.Adapter<EventRecyclerAda
         Event event = eventList.get(i);
         myViewHolder.titre.setText(event.getTitre_fr());
         myViewHolder.thematiques.setText(event.getThematiques());
-       // myViewHolder.description.setText(event.getDescription());
-       Picasso.get().load(event.getApercu()).into(myViewHolder.apercu);
+       myViewHolder.description.setText(event.getDescription());
+       //Picasso.get().load(event.getApercu()).into(myViewHolder.apercu);
 
        myViewHolder.cardView.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
                Intent intent = new Intent(context, Event.class);
-               intent.putExtra("Titre", eventList.get(myViewHolder.getAdapterPosition()).getTitre_fr()).toString();
-               intent.putExtra("Ville", eventList.get(myViewHolder.getAdapterPosition()).getVille()).toString();
-               intent.putExtra("description", eventList.get(myViewHolder.getAdapterPosition()).getDescription()).toString();
-               intent.putExtra("apercu", eventList.get(myViewHolder.getAdapterPosition()).getApercu()).toString();
-               intent.putExtra("thematiques", eventList.get(myViewHolder.getAdapterPosition()).getThematiques()).toString();
+               intent.putExtra("Titre", eventList.get(myViewHolder.getAdapterPosition()).getTitre_fr());
+               intent.putExtra("Ville", eventList.get(myViewHolder.getAdapterPosition()).getVille());
+               intent.putExtra("description", eventList.get(myViewHolder.getAdapterPosition()).getDescription());
+              // intent.putExtra("apercu", eventList.get(myViewHolder.getAdapterPosition()).getApercu());
+               intent.putExtra("thematiques", eventList.get(myViewHolder.getAdapterPosition()).getThematiques());
            }
        });
 
@@ -72,7 +72,7 @@ public class EventRecyclerAdapater extends RecyclerView.Adapter<EventRecyclerAda
 
        CardView cardView;
        TextView ville;
-       ImageView apercu;
+      // ImageView apercu;
        //TextView  placeMax;
        TextView description;
        TextView titre;
@@ -82,7 +82,7 @@ public class EventRecyclerAdapater extends RecyclerView.Adapter<EventRecyclerAda
             super(itemView);
             cardView = itemView.findViewById(R.id.cardview);
            ville = itemView.findViewById(R.id.ville);
-            apercu =  itemView.findViewById(R.id.apercu);
+          //  apercu =  itemView.findViewById(R.id.apercu);
             description = itemView.findViewById(R.id.description);
             thematiques = itemView.findViewById(R.id.thematiques);
             titre = itemView.findViewById(R.id.title);

@@ -31,46 +31,36 @@ public class Event_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_);
-        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
-
-        /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
 
         recyclerView = (RecyclerView) findViewById(R.id.event_recyclerView);
        // GridLayoutManager myGridLayoutManager = new GridLayoutManager(MainActivity.this, 1);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         eventList = new ArrayList<Event>();
-        recyclerView.setHasFixedSize(true);
-        eventRecyclerAdapater = new EventRecyclerAdapater(Event_Activity.this, eventList);
-        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
-        reference = FirebaseDatabase.getInstance().getReference().child("Filds");
-        reference.addValueEventListener(new ValueEventListener() {
-
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot dataSnapshot1: dataSnapshot.getChildren()){
-                    Event event = dataSnapshot1.getValue(Event.class);
+        int i =1;
+        while (i < 6366){
+            reference = FirebaseDatabase.getInstance().getReference().child("eventsScience").child(Integer.toString(i));
+            i++;
+            reference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    String titre = dataSnapshot.child("fields").child("titre_fr").getValue(String.class);
+                    String ville = dataSnapshot.child("fields").child("ville").getValue(String.class);
+                    String thematiques = dataSnapshot.child("fields").child("thematiques").getValue(String.class);
+                    String description = dataSnapshot.child("fields").child("description_fr").getValue(String.class);
+                    Event event = new Event(titre, ville, description, thematiques);
                     eventList.add(event);
+                    eventRecyclerAdapater = new EventRecyclerAdapater(Event_Activity.this,eventList);
+                    recyclerView.setAdapter(eventRecyclerAdapater);
+
                 }
 
-                eventRecyclerAdapater = new EventRecyclerAdapater(Event_Activity.this, eventList);
-                recyclerView.setAdapter(eventRecyclerAdapater);
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    Toast.makeText(Event_Activity.this, " wrong", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
 
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(Event_Activity.this, "error de demarrage", Toast.LENGTH_SHORT).show();
-
-            }
-        });
 
     }
 

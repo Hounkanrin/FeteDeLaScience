@@ -22,7 +22,11 @@ public class Event {
         this.ville = ville;
     }
 
-    public Event() {
+    public Event(String titre, String ville, String description, String thematiques) {
+        this.description = description;
+        this.titre_fr = titre;
+        this.thematiques = thematiques;
+        this.ville = ville;
     }
 
     public String getApercu() {
