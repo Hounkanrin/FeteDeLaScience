@@ -1,14 +1,12 @@
 package fr.istic.ccn2.ftedelascience;
 
+
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -17,26 +15,115 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     // Write a message to the database
-    FirebaseDatabase db = FirebaseDatabase.getInstance();
+    //FirebaseDatabase db = FirebaseDatabase.getInstance();
     DatabaseReference dbRef;
-    List<Event> eventList;
+    ArrayList<Event> eventList;
     RecyclerView recyclerView;
-    Button view;
+    EventRecyclerView adapter;
+    //Button view;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        view = (Button) findViewById(R.id.view);
-        recyclerView = (RecyclerView) findViewById(R.id.recycleView);
-        db = FirebaseDatabase.getInstance();
-        dbRef = db.getReference("filds");
+        recyclerView = (RecyclerView) findViewById(R.id.event_recyclerview);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        eventList = new ArrayList<Event>();
+        int i =1;
+        while (i<6366){
+            dbRef = FirebaseDatabase.getInstance().getReference().child(Integer.toString(i));
+            i++;
+            dbRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    String titre = dataSnapshot.child("fields").child("titre_fr").getValue(String.class);
+                    Event event = new Event(titre);
+                    eventList.add(event);
+                    adapter = new EventRecyclerView(MainActivity.this, eventList);
+                    recyclerView.setAdapter(adapter);
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    Toast.makeText(MainActivity.this, "hello", Toast.LENGTH_SHORT).show();
+
+                }
+            });
+        }
+
+
+    }
+
+}
+    /*@Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        recyclerView = (RecyclerView) findViewById(R.id.event_recyclerview);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        eventList = new ArrayList<Event>();
+        int i = 1;
+        while (i < 6366){
+            dbRef = FirebaseDatabase.getInstance().getReference().child(Integer.toString(i));
+            i++;
+            dbRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    String titre = dataSnapshot.child("fields").child("titre_fr").getValue(String.class);
+                    Event event = new Event(titre);
+                    eventList.add(event);
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    Toast.makeText(MainActivity.this, "hello", Toast.LENGTH_SHORT).show();
+
+                }
+            });
+        }
+
+
+   /* @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        recyclerView = (RecyclerView) findViewById(R.id.event_recyclerview);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        eventList = new ArrayList<Event>();
+
+            dbRef = FirebaseDatabase.getInstance().getReference().child("fields");
+            dbRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for (DataSnapshot dataSnapshot1:dataSnapshot.getChildren()) {
+                        Event eventValue = dataSnapshot1.getValue(Event.class);
+                        String titre = eventValue.getTitre_fr();
+                        Event event = new Event(titre);
+                        eventList.add(event);
+                        adapter = new EventRecyclerView(MainActivity.this, eventList);
+                        recyclerView.setAdapter(adapter);
+
+                    }
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    Toast.makeText(MainActivity.this, "hello", Toast.LENGTH_SHORT).show();
+
+                }
+            });
+
+
+
+    /*   db = FirebaseDatabase.getInstance();
+        dbRef = db.getReference("fields");
         dbRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -73,6 +160,4 @@ public class MainActivity extends AppCompatActivity {
                 recyclerView.setItemAnimator(new DefaultItemAnimator());
                 recyclerView.setAdapter(eventRecyclerView);
             }
-        });
-    }
-}
+        });*/
