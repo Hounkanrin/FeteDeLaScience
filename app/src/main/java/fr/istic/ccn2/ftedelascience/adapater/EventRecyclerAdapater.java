@@ -1,4 +1,4 @@
-package fr.istic.ccn2.ftedelascience;
+package fr.istic.ccn2.ftedelascience.adapater;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,9 +13,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
-import com.squareup.picasso.Picasso;
-
 import java.util.List;
+
+import fr.istic.ccn2.ftedelascience.R;
+import fr.istic.ccn2.ftedelascience.activity.MainActivity;
+import fr.istic.ccn2.ftedelascience.model.Event;
 
 import static android.support.constraint.Constraints.TAG;
 
@@ -43,18 +45,20 @@ public class EventRecyclerAdapater extends RecyclerView.Adapter<EventRecyclerAda
         Event event = eventList.get(i);
         myViewHolder.titre.setText(event.getTitre_fr());
         myViewHolder.thematiques.setText(event.getThematiques());
-       myViewHolder.description.setText(event.getDescription());
-       //Picasso.get().load(event.getApercu()).into(myViewHolder.apercu);
+        myViewHolder.description.setText(event.getDescription());
 
-       myViewHolder.cardView.setOnClickListener(new View.OnClickListener() {
+       myViewHolder.MoncardView.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-               Intent intent = new Intent(context, Event.class);
-               intent.putExtra("Titre", eventList.get(myViewHolder.getAdapterPosition()).getTitre_fr());
-               intent.putExtra("Ville", eventList.get(myViewHolder.getAdapterPosition()).getVille());
-               intent.putExtra("description", eventList.get(myViewHolder.getAdapterPosition()).getDescription());
-              // intent.putExtra("apercu", eventList.get(myViewHolder.getAdapterPosition()).getApercu());
+               Intent intent = new Intent(context, MainActivity.class);
+               intent.putExtra("titre", eventList.get(myViewHolder.getAdapterPosition()).getTitre_fr());
                intent.putExtra("thematiques", eventList.get(myViewHolder.getAdapterPosition()).getThematiques());
+               intent.putExtra("description_longue", eventList.get(myViewHolder.getAdapterPosition()).getDescription_longue_fr());
+               //intent.putExtra("nPlaces", eventList.get(myViewHolder.getAdapterPosition()).getNbPlaces());
+             //  intent.putExtra("placeMax",eventList.get(myViewHolder.getAdapterPosition()).getPlaceMax());
+               intent.putExtra("image", eventList.get(myViewHolder.getAdapterPosition()).getImage());
+               intent.putExtra("organisateur",eventList.get(myViewHolder.getAdapterPosition()).getOrganisateur());
+               context.startActivity(intent);
            }
        });
 
@@ -70,22 +74,30 @@ public class EventRecyclerAdapater extends RecyclerView.Adapter<EventRecyclerAda
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-       CardView cardView;
+       CardView MoncardView;
        TextView ville;
-      // ImageView apercu;
+       //TextView nbPlaces;
        //TextView  placeMax;
        TextView description;
        TextView titre;
        TextView thematiques;
+       TextView description_longue;
+       ImageView image;
+      TextView organisateur;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            cardView = itemView.findViewById(R.id.cardview);
-           ville = itemView.findViewById(R.id.ville);
-          //  apercu =  itemView.findViewById(R.id.apercu);
+            MoncardView = itemView.findViewById(R.id.cardview);
+            ville = itemView.findViewById(R.id.ville);
             description = itemView.findViewById(R.id.description);
             thematiques = itemView.findViewById(R.id.thematiques);
             titre = itemView.findViewById(R.id.title);
+            image = itemView.findViewById(R.id.image);
+           // nbPlaces = itemView.findViewById(R.id.nbplaces);
+          //  placeMax = itemView.findViewById(R.id.placeMax);
+            description_longue = itemView.findViewById(R.id.description_longue);
+           organisateur = itemView.findViewById(R.id.organisateur);
+
 
         }
     }

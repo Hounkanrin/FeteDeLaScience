@@ -1,33 +1,40 @@
-package fr.istic.ccn2.ftedelascience;
+package fr.istic.ccn2.ftedelascience.model;
 
 public class Event {
 
-    private int id;
+
     private String apercu;
-    //private String identifiant;
-    //private String nbPlaces;
-    //private String placeMax;
-  //  private String periode;
+    private String nbPlaces;
+    private String placeMax;
+    private String periode;
     private String description;
     private String titre_fr;
     private String thematiques;
     private String ville;
+    private String description_longue_fr;
+    private String image ;
+    private String organisateur;
 
-
-    public Event(String apercu, String description, String titre_fr, String thematiques, String ville) {
+    public Event(String apercu, String description, String titre_fr, String thematiques) {
         this.apercu = apercu;
         this.description = description;
         this.titre_fr = titre_fr;
         this.thematiques = thematiques;
-        this.ville = ville;
+
+
     }
 
-    public Event(String titre, String ville, String description, String thematiques) {
+    public Event(String titre, String ville, String description, String thematiques, String description_longue, String image, String organisateur) {
         this.description = description;
         this.titre_fr = titre;
         this.thematiques = thematiques;
         this.ville = ville;
+        this.description_longue_fr = description_longue;
+        this.image = image;
+        this.organisateur =organisateur;
+
     }
+
 
     public String getApercu() {
         return apercu;
@@ -69,6 +76,53 @@ public class Event {
         this.ville = ville;
     }
 
+    public String getNbPlaces() {
+        return nbPlaces;
+    }
+
+    public void setNbPlaces(String nbPlaces) {
+        this.nbPlaces = nbPlaces;
+    }
+
+    public String getPlaceMax() {
+        return placeMax;
+    }
+
+    public void setPlaceMax(String placeMax) {
+        this.placeMax = placeMax;
+    }
+
+    public String getPeriode() {
+        return periode;
+    }
+
+    public void setPeriode(String periode) {
+        this.periode = periode;
+    }
+
+    public String getDescription_longue_fr() {
+        return description_longue_fr;
+    }
+
+    public void setDescription_longue_fr(String description_longue_fr) {
+        this.description_longue_fr = description_longue_fr;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getOrganisateur() {
+        return organisateur;
+    }
+
+    public void setOrganisateur(String organisateur) {
+        this.organisateur = organisateur;
+    }
     /*
     private String region;
     private String description_longue_fr;
