@@ -1,4 +1,4 @@
-package fr.istic.ccn2.ftedelascience;
+package fr.istic.ccn2.ftedelascience.model;
 
 public class Event {
 
@@ -12,22 +12,26 @@ public class Event {
     private String thematiques;
     private String ville;
     private String description_longue_fr;
+    private String image ;
 
-    public Event(String apercu, String description, String titre_fr, String thematiques, String ville) {
+    public Event(String apercu, String description, String titre_fr, String thematiques, String ville, String description_longue_fr, String image) {
         this.apercu = apercu;
         this.description = description;
         this.titre_fr = titre_fr;
         this.thematiques = thematiques;
         this.ville = ville;
-
+        this.description_longue_fr = description_longue_fr;
+        this.image = image;
     }
 
-    public Event(String titre1, String s, String titre, String ville, String description, String thematiques) {
+    public Event(String titre, String ville, String description, String thematiques, String description_longue, String image) {
         this.description = description;
         this.titre_fr = titre;
         this.thematiques = thematiques;
         this.ville = ville;
-        this.apercu = s;
+        this.description_longue_fr = description_longue;
+        this.image = image;
+
     }
 
     public String getApercu() {
@@ -101,6 +105,15 @@ public class Event {
     public void setDescription_longue_fr(String description_longue_fr) {
         this.description_longue_fr = description_longue_fr;
     }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     /*
     private String region;
     private String description_longue_fr;
