@@ -24,15 +24,52 @@
         android:layout_width="180dp"
         android:layout_height="140dp"/>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:padding="5dp"
+            android:text="@string/titre"
+            android:textSize="18sp"
+            android:textColor="#0000ff"/>
+
     <TextView
         android:id="@+id/title"
-
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:padding="5dp"
-        android:textSize="18sp" />
+        android:textSize="14sp"
+        android:textStyle="bold"/>
+       <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:padding="5dp"
+            android:text="@string/organisateur"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#0000ff"
+            />
 
+        <TextView
+            android:id="@+id/organisateur"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:padding="5dp"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:padding="5dp"
+            android:text="@string/description_event"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#0000ff"
+            />
 
     <TextView
         android:id="@+id/description_longue"
@@ -40,7 +77,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:padding="5dp"
-        android:textSize="18sp" />
+        android:textSize="14sp" />
+
+
     </LinearLayout>
 
 </ScrollView>

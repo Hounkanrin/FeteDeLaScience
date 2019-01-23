@@ -12,13 +12,14 @@ import fr.istic.ccn2.ftedelascience.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView ville;
+
     TextView titre;
     TextView description_longue;
     ImageView image;
    // TextView nbPlaces;
     //TextView placeMax;
     TextView thematiques;
+    TextView organisateur;
 
 
 
@@ -33,12 +34,14 @@ public class MainActivity extends AppCompatActivity {
        // nbPlaces = findViewById(R.id.nbplaces);
        // placeMax = findViewById(R.id.placeMax);
         thematiques = findViewById(R.id.thematiques);
+        organisateur = findViewById(R.id.organisateur);
 
         Bundle bundle = getIntent().getExtras();
         if (bundle != null){
             Picasso.get().load(bundle.getString("image")).into(image);
             titre.setText(bundle.getString("titre"));
            // nbPlaces.setText(bundle.getString("nbPlaces"));
+            organisateur.setText(bundle.getString("organisateur"));
             description_longue.setText(bundle.getString("description_longue"));
 
         }

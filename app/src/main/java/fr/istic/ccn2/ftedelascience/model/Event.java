@@ -2,7 +2,7 @@ package fr.istic.ccn2.ftedelascience.model;
 
 public class Event {
 
-    private int id;
+
     private String apercu;
     private String nbPlaces;
     private String placeMax;
@@ -13,26 +13,28 @@ public class Event {
     private String ville;
     private String description_longue_fr;
     private String image ;
+    private String organisateur;
 
-    public Event(String apercu, String description, String titre_fr, String thematiques, String ville, String description_longue_fr, String image) {
+    public Event(String apercu, String description, String titre_fr, String thematiques) {
         this.apercu = apercu;
         this.description = description;
         this.titre_fr = titre_fr;
         this.thematiques = thematiques;
-        this.ville = ville;
-        this.description_longue_fr = description_longue_fr;
-        this.image = image;
+
+
     }
 
-    public Event(String titre, String ville, String description, String thematiques, String description_longue, String image) {
+    public Event(String titre, String ville, String description, String thematiques, String description_longue, String image, String organisateur) {
         this.description = description;
         this.titre_fr = titre;
         this.thematiques = thematiques;
         this.ville = ville;
         this.description_longue_fr = description_longue;
         this.image = image;
+        this.organisateur =organisateur;
 
     }
+
 
     public String getApercu() {
         return apercu;
@@ -114,6 +116,13 @@ public class Event {
         this.image = image;
     }
 
+    public String getOrganisateur() {
+        return organisateur;
+    }
+
+    public void setOrganisateur(String organisateur) {
+        this.organisateur = organisateur;
+    }
     /*
     private String region;
     private String description_longue_fr;

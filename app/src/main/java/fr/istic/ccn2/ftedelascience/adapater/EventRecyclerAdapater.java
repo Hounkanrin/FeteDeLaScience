@@ -57,6 +57,7 @@ public class EventRecyclerAdapater extends RecyclerView.Adapter<EventRecyclerAda
                //intent.putExtra("nPlaces", eventList.get(myViewHolder.getAdapterPosition()).getNbPlaces());
              //  intent.putExtra("placeMax",eventList.get(myViewHolder.getAdapterPosition()).getPlaceMax());
                intent.putExtra("image", eventList.get(myViewHolder.getAdapterPosition()).getImage());
+               intent.putExtra("organisateur",eventList.get(myViewHolder.getAdapterPosition()).getOrganisateur());
                context.startActivity(intent);
            }
        });
@@ -82,6 +83,7 @@ public class EventRecyclerAdapater extends RecyclerView.Adapter<EventRecyclerAda
        TextView thematiques;
        TextView description_longue;
        ImageView image;
+      TextView organisateur;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -94,6 +96,7 @@ public class EventRecyclerAdapater extends RecyclerView.Adapter<EventRecyclerAda
            // nbPlaces = itemView.findViewById(R.id.nbplaces);
           //  placeMax = itemView.findViewById(R.id.placeMax);
             description_longue = itemView.findViewById(R.id.description_longue);
+           organisateur = itemView.findViewById(R.id.organisateur);
 
 
         }

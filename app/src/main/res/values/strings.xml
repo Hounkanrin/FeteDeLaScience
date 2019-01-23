@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Fête de la Science</string>
     <string name="title_activity_event_">fte de la Science</string>
-    <string name="titre">Titre</string>
-    <string name="thematique">Thématique</string>
+    <string name="titre">Titre : </string>
+    <string name="thematique">Thématique: </string>
     <string name="ville">Ville</string>
     <string name="filter">Filtre</string>
     <string name="periode">Période</string>
@@ -20,9 +20,10 @@
     <string name="hour_event">Horaire</string>
     <string name="description_event">DESCRIPTION : </string>
     <string name="period_event">PÉRIODE : </string>
-    <string name="organisateur_event">ORGANISATEUR(S) : </string>
+    <string name="organisateur">Organisateur(s) : </string>
     <string name="places_event">NOMBRE DE VISITEURS : </string>
     <string name="placesMax_event">MAXIMUM DES PLACES : </string>
     <string name="image_event"></string>
     <string name="details">Voir details </string>
+
 </resources>

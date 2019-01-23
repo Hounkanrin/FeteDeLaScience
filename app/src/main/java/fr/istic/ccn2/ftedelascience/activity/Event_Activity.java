@@ -50,7 +50,8 @@ public class Event_Activity extends AppCompatActivity {
                     String description = dataSnapshot.child("fields").child("description_fr").getValue(String.class);
                     String description_longue = dataSnapshot.child("fields").child("description_longue_fr").getValue(String.class);
                     String image = dataSnapshot.child("fields").child("image").getValue(String.class);
-                    Event event = new Event(titre, ville, description, thematiques,description_longue, image);
+                   String organisateur = dataSnapshot.child("fields").child("organisateur").getValue(String.class);
+                    Event event = new Event(titre, ville, description, thematiques,description_longue, image, organisateur);
                     eventList.add(event);
                     eventRecyclerAdapater = new EventRecyclerAdapater(Event_Activity.this,eventList);
                     recyclerView.setAdapter(eventRecyclerAdapater);
