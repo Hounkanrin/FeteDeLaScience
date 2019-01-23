@@ -9,21 +9,25 @@
     <string name="nbplaces">Nombre de places Disponibles</string>
     <string name="placesMax">Nombre de places Maximum</string>
     <string name="description_longue">Description</string>
+    <string name="evenements">Evenements</string>
 
 
 
 
 
     <!--evenement informations-->
-    <string name="thematique_event">Thématique</string>
+    <string name="thematiques">Thématiques</string>
     <string name="title_event">Evenements</string>
     <string name="hour_event">Horaire</string>
     <string name="description_event">DESCRIPTION : </string>
-    <string name="period_event">PÉRIODE : </string>
+    <string name="horaire">Horaire : </string>
     <string name="organisateur">Organisateur(s) : </string>
     <string name="places_event">NOMBRE DE VISITEURS : </string>
     <string name="placesMax_event">MAXIMUM DES PLACES : </string>
     <string name="image_event"></string>
     <string name="details">Voir details </string>
+    <string name="adress">Adresse</string>
+    <string name="lieu">Lieu</string>
+    <string name="inscription">Inscription Obligatoire  </string>
 
 </resources>

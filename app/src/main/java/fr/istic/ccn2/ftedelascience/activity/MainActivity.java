@@ -20,7 +20,11 @@ public class MainActivity extends AppCompatActivity {
     //TextView placeMax;
     TextView thematiques;
     TextView organisateur;
-
+    TextView animation;
+    TextView horaire;
+    TextView lieu;
+    TextView inscription;
+    TextView adresse;
 
 
     @Override
@@ -35,14 +39,28 @@ public class MainActivity extends AppCompatActivity {
        // placeMax = findViewById(R.id.placeMax);
         thematiques = findViewById(R.id.thematiques);
         organisateur = findViewById(R.id.organisateur);
+        animation = findViewById(R.id.animation);
+        thematiques = findViewById(R.id.thematiques);
+        organisateur = findViewById(R.id.organisateur);
+        animation = findViewById(R.id.animation);
+       horaire = findViewById(R.id.horaire);
+        lieu = findViewById(R.id.lieu);
+        inscription = findViewById(R.id.inscription);
+        adresse = findViewById(R.id.adresse);
 
         Bundle bundle = getIntent().getExtras();
         if (bundle != null){
+            animation.setText(bundle.getString("animation"));
             Picasso.get().load(bundle.getString("image")).into(image);
             titre.setText(bundle.getString("titre"));
-           // nbPlaces.setText(bundle.getString("nbPlaces"));
+            thematiques.setText(bundle.getString("thematiques"));
             organisateur.setText(bundle.getString("organisateur"));
             description_longue.setText(bundle.getString("description_longue"));
+            horaire.setText(bundle.getString("horaire"));
+            lieu.setText(bundle.getString("lieu"));
+            inscription.setText(bundle.getString("inscription"));
+            adresse.setText(bundle.getString("adresse"));
+
 
         }
 

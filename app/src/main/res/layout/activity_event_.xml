@@ -1,34 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".activity.Event_Activity">
 
-  <!--  <android.support.design.widget.AppBarLayout
+
+    <TextView
+        android:id="@+id/page_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:textColor="#000"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:text="@string/title_event"/>
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-    </android.support.design.widget.AppBarLayout>
-
-    <include layout="@layout/content_event_" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
+    <RelativeLayout android:id="@+id/search_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />-->
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/page_title">
+
+         <SearchView
+        android:id="@+id/search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:queryHint="Rechercher"
+        android:layout_toLeftOf="@id/label_filter">
+
+    </SearchView>
+        <TextView
+            android:id="@+id/label_filter"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="@string/filter"
+            android:layout_gravity="center"
+            android:textSize="15sp"
+            android:layout_toLeftOf="@id/key_words_filter"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="8dp"
+            />
+    <Spinner
+        android:id="@+id/key_words_filter"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true">
+    </Spinner>
+
+    </RelativeLayout>
+
+
+
+
+  <!--<RelativeLayout
+      android:id="@+id/search_layout"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10dp"
+      android:layout_below="@id/page_title">
+
+        />
+    <TextView
+        android:id="@+id/label_filter"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="@string/label_filter"
+        android:layout_gravity="center"
+        android:textSize="15sp"
+        android:layout_toLeftOf="@id/key_words_filter"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="8dp"
+        />-->
+
+
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
@@ -37,4 +86,4 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"/>
 
-</android.support.design.widget.CoordinatorLayout>
+</LinearLayout>

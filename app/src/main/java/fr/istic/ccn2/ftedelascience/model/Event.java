@@ -14,6 +14,12 @@ public class Event {
     private String description_longue_fr;
     private String image ;
     private String organisateur;
+    private  String animation;
+    private  String adresse;
+    private  String lieu;
+    private  String horaire;
+    private  String inscription;
+
 
     public Event(String apercu, String description, String titre_fr, String thematiques) {
         this.apercu = apercu;
@@ -24,7 +30,7 @@ public class Event {
 
     }
 
-    public Event(String titre, String ville, String description, String thematiques, String description_longue, String image, String organisateur) {
+    public Event(String titre, String ville, String description, String thematiques, String description_longue, String image, String organisateur, String animation, String adresse, String lieu, String inscription, String horaire) {
         this.description = description;
         this.titre_fr = titre;
         this.thematiques = thematiques;
@@ -32,6 +38,11 @@ public class Event {
         this.description_longue_fr = description_longue;
         this.image = image;
         this.organisateur =organisateur;
+        this.animation = animation;
+        this.adresse = adresse;
+        this.lieu = lieu;
+        this.inscription = inscription;
+        this.horaire = horaire;
 
     }
 
@@ -123,6 +134,47 @@ public class Event {
     public void setOrganisateur(String organisateur) {
         this.organisateur = organisateur;
     }
+
+    public String getAnimation() {
+        return animation;
+    }
+
+    public void setAnimation(String animation) {
+        this.animation = animation;
+    }
+
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
+
+    public String getLieu() {
+        return lieu;
+    }
+
+    public void setLieu(String lieu) {
+        this.lieu = lieu;
+    }
+
+    public String getHoraire() {
+        return horaire;
+    }
+
+    public void setHoraire(String horaire) {
+        this.horaire = horaire;
+    }
+
+    public String getInscription() {
+        return inscription;
+    }
+
+    public void setInscription(String inscription) {
+        this.inscription = inscription;
+    }
+
     /*
     private String region;
     private String description_longue_fr;

@@ -49,9 +49,15 @@ public class Event_Activity extends AppCompatActivity {
                     String thematiques = dataSnapshot.child("fields").child("thematiques").getValue(String.class);
                     String description = dataSnapshot.child("fields").child("description_fr").getValue(String.class);
                     String description_longue = dataSnapshot.child("fields").child("description_longue_fr").getValue(String.class);
-                    String image = dataSnapshot.child("fields").child("image").getValue(String.class);
+                   String image = dataSnapshot.child("fields").child("image").getValue(String.class);
                    String organisateur = dataSnapshot.child("fields").child("organisateur").getValue(String.class);
-                    Event event = new Event(titre, ville, description, thematiques,description_longue, image, organisateur);
+                   String animation = dataSnapshot.child("fields").child("type_d_animation").getValue(String.class);
+                    String horaire = dataSnapshot.child("fields").child("horaires_detailles_fr").getValue(String.class);
+                    String lieu = dataSnapshot.child("fields").child("nom_du_lieu").getValue(String.class);
+                    String adresse = dataSnapshot.child("fields").child("adresse").getValue(String.class);
+                    String inscription = dataSnapshot.child("fields").child("inscription_necessaire").getValue(String.class);
+
+                    Event event = new Event(titre, ville, description, thematiques,description_longue, image, organisateur, animation, adresse , lieu, inscription, horaire);
                     eventList.add(event);
                     eventRecyclerAdapater = new EventRecyclerAdapater(Event_Activity.this,eventList);
                     recyclerView.setAdapter(eventRecyclerAdapater);

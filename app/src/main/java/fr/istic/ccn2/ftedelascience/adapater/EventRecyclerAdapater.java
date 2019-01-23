@@ -58,6 +58,12 @@ public class EventRecyclerAdapater extends RecyclerView.Adapter<EventRecyclerAda
              //  intent.putExtra("placeMax",eventList.get(myViewHolder.getAdapterPosition()).getPlaceMax());
                intent.putExtra("image", eventList.get(myViewHolder.getAdapterPosition()).getImage());
                intent.putExtra("organisateur",eventList.get(myViewHolder.getAdapterPosition()).getOrganisateur());
+               intent.putExtra("animation", eventList.get(myViewHolder.getAdapterPosition()).getAnimation());
+                intent.putExtra("inscription",eventList.get(myViewHolder.getAdapterPosition()).getInscription());
+               intent.putExtra("horaire", eventList.get(myViewHolder.getAdapterPosition()).getHoraire());
+               intent.putExtra("lieu",eventList.get(myViewHolder.getAdapterPosition()).getLieu());
+               intent.putExtra("adresse", eventList.get(myViewHolder.getAdapterPosition()).getAdresse());
+
                context.startActivity(intent);
            }
        });
@@ -83,7 +89,12 @@ public class EventRecyclerAdapater extends RecyclerView.Adapter<EventRecyclerAda
        TextView thematiques;
        TextView description_longue;
        ImageView image;
-      TextView organisateur;
+       TextView organisateur;
+       TextView animation;
+        TextView horaire;
+        TextView lieu;
+        TextView adresse;
+        TextView inscription;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -97,6 +108,11 @@ public class EventRecyclerAdapater extends RecyclerView.Adapter<EventRecyclerAda
           //  placeMax = itemView.findViewById(R.id.placeMax);
             description_longue = itemView.findViewById(R.id.description_longue);
            organisateur = itemView.findViewById(R.id.organisateur);
+           animation = itemView.findViewById(R.id.animation);
+          horaire = itemView.findViewById(R.id.horaire);
+            lieu = itemView.findViewById(R.id.lieu);
+            adresse = itemView.findViewById(R.id.adresse);
+            inscription = itemView.findViewById(R.id.inscription);
 
 
         }
