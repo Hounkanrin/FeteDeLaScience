@@ -5,6 +5,10 @@
     <string name="thematique">Thématique</string>
     <string name="ville">Ville</string>
     <string name="filter">Filtre</string>
+    <string name="periode">Période</string>
+    <string name="nbplaces">Nombre de places Disponibles</string>
+    <string name="placesMax">Nombre de places Maximum</string>
+    <string name="description_longue">Description</string>
 
 
 

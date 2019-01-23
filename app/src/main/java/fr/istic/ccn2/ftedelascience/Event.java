@@ -4,15 +4,14 @@ public class Event {
 
     private int id;
     private String apercu;
-    //private String identifiant;
-    //private String nbPlaces;
-    //private String placeMax;
-  //  private String periode;
+    private String nbPlaces;
+    private String placeMax;
+    private String periode;
     private String description;
     private String titre_fr;
     private String thematiques;
     private String ville;
-
+    private String description_longue_fr;
 
     public Event(String apercu, String description, String titre_fr, String thematiques, String ville) {
         this.apercu = apercu;
@@ -20,13 +19,15 @@ public class Event {
         this.titre_fr = titre_fr;
         this.thematiques = thematiques;
         this.ville = ville;
+
     }
 
-    public Event(String titre, String ville, String description, String thematiques) {
+    public Event(String titre1, String s, String titre, String ville, String description, String thematiques) {
         this.description = description;
         this.titre_fr = titre;
         this.thematiques = thematiques;
         this.ville = ville;
+        this.apercu = s;
     }
 
     public String getApercu() {
@@ -69,6 +70,37 @@ public class Event {
         this.ville = ville;
     }
 
+    public String getNbPlaces() {
+        return nbPlaces;
+    }
+
+    public void setNbPlaces(String nbPlaces) {
+        this.nbPlaces = nbPlaces;
+    }
+
+    public String getPlaceMax() {
+        return placeMax;
+    }
+
+    public void setPlaceMax(String placeMax) {
+        this.placeMax = placeMax;
+    }
+
+    public String getPeriode() {
+        return periode;
+    }
+
+    public void setPeriode(String periode) {
+        this.periode = periode;
+    }
+
+    public String getDescription_longue_fr() {
+        return description_longue_fr;
+    }
+
+    public void setDescription_longue_fr(String description_longue_fr) {
+        this.description_longue_fr = description_longue_fr;
+    }
     /*
     private String region;
     private String description_longue_fr;

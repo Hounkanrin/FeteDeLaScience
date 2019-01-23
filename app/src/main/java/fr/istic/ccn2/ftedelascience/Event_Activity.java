@@ -8,6 +8,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Toast;
 
@@ -32,8 +33,7 @@ public class Event_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_);
 
-        recyclerView = (RecyclerView) findViewById(R.id.event_recyclerView);
-       // GridLayoutManager myGridLayoutManager = new GridLayoutManager(MainActivity.this, 1);
+        recyclerView = this.<RecyclerView>findViewById(R.id.event_recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         eventList = new ArrayList<Event>();
         int i =1;
@@ -47,7 +47,9 @@ public class Event_Activity extends AppCompatActivity {
                     String ville = dataSnapshot.child("fields").child("ville").getValue(String.class);
                     String thematiques = dataSnapshot.child("fields").child("thematiques").getValue(String.class);
                     String description = dataSnapshot.child("fields").child("description_fr").getValue(String.class);
-                    Event event = new Event(titre, ville, description, thematiques);
+                    //String description_longue = dataSnapshot.child("fields").child("description_longue_fr").getValue(String.class);
+                   String apercu = dataSnapshot.child("fields").child("image").getValue(String.class);
+                    Event event = new Event(titre, ville, description, thematiques, apercu );
                     eventList.add(event);
                     eventRecyclerAdapater = new EventRecyclerAdapater(Event_Activity.this,eventList);
                     recyclerView.setAdapter(eventRecyclerAdapater);
@@ -59,9 +61,19 @@ public class Event_Activity extends AppCompatActivity {
                     Toast.makeText(Event_Activity.this, " wrong", Toast.LENGTH_SHORT).show();
                 }
             });
+
         }
 
 
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //ajoute les entrées de menu_test à l'ActionBar
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+
 
 }
