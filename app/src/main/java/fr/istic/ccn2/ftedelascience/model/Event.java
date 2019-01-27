@@ -1,6 +1,11 @@
 package fr.istic.ccn2.ftedelascience.model;
 
-public class Event {
+import android.support.v7.widget.SearchView;
+import android.widget.TextView;
+
+import java.io.Serializable;
+
+public class Event implements Serializable {
 
 
     private String apercu;
@@ -14,6 +19,13 @@ public class Event {
     private String description_longue_fr;
     private String image ;
     private String organisateur;
+    private  String animation;
+    private  String adresse;
+    private  String lieu;
+    private  String horaire;
+    private  String inscription;
+    private String telephone;
+
 
     public Event(String apercu, String description, String titre_fr, String thematiques) {
         this.apercu = apercu;
@@ -24,7 +36,7 @@ public class Event {
 
     }
 
-    public Event(String titre, String ville, String description, String thematiques, String description_longue, String image, String organisateur) {
+    public Event(String titre, String ville, String description, String thematiques, String description_longue, String image, String organisateur, String animation, String adresse, String lieu, String inscription, String horaire, String apercu, String telephone) {
         this.description = description;
         this.titre_fr = titre;
         this.thematiques = thematiques;
@@ -32,6 +44,19 @@ public class Event {
         this.description_longue_fr = description_longue;
         this.image = image;
         this.organisateur =organisateur;
+        this.animation = animation;
+        this.adresse = adresse;
+        this.lieu = lieu;
+        this.inscription = inscription;
+        this.horaire = horaire;
+        this.apercu = apercu;
+        this.telephone = telephone;
+    }
+
+    public Event(String titre, String lieu, String thematiques) {
+        this.titre_fr = titre;
+        this.thematiques = thematiques;
+        this.lieu = lieu;
 
     }
 
@@ -122,6 +147,54 @@ public class Event {
 
     public void setOrganisateur(String organisateur) {
         this.organisateur = organisateur;
+    }
+
+    public String getAnimation() {
+        return animation;
+    }
+
+    public void setAnimation(String animation) {
+        this.animation = animation;
+    }
+
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
+
+    public String getLieu() {
+        return lieu;
+    }
+
+    public void setLieu(String lieu) {
+        this.lieu = lieu;
+    }
+
+    public String getHoraire() {
+        return horaire;
+    }
+
+    public void setHoraire(String horaire) {
+        this.horaire = horaire;
+    }
+
+    public String getInscription() {
+        return inscription;
+    }
+
+    public void setInscription(String inscription) {
+        this.inscription = inscription;
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
     }
     /*
     private String region;
