@@ -12,9 +12,6 @@
     <string name="evenements">Evenements</string>
 
 
-
-
-
     <!--evenement informations-->
     <string name="thematiques">Thématiques</string>
     <string name="title_event">Evenements</string>
@@ -30,5 +27,6 @@
     <string name="lieu">Lieu</string>
     <string name="inscription">Inscription Obligatoire  </string>
     <string name="telephone">Téléphone</string>
+    <string name="title_activity_maps">Map</string>
 
 </resources>
