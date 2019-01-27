@@ -29,5 +29,6 @@
     <string name="adress">Adresse</string>
     <string name="lieu">Lieu</string>
     <string name="inscription">Inscription Obligatoire  </string>
+    <string name="telephone">Téléphone</string>
 
 </resources>

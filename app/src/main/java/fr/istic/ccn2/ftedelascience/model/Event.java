@@ -1,6 +1,11 @@
 package fr.istic.ccn2.ftedelascience.model;
 
-public class Event {
+import android.support.v7.widget.SearchView;
+import android.widget.TextView;
+
+import java.io.Serializable;
+
+public class Event implements Serializable {
 
 
     private String apercu;
@@ -19,6 +24,7 @@ public class Event {
     private  String lieu;
     private  String horaire;
     private  String inscription;
+    private String telephone;
 
 
     public Event(String apercu, String description, String titre_fr, String thematiques) {
@@ -30,7 +36,7 @@ public class Event {
 
     }
 
-    public Event(String titre, String ville, String description, String thematiques, String description_longue, String image, String organisateur, String animation, String adresse, String lieu, String inscription, String horaire) {
+    public Event(String titre, String ville, String description, String thematiques, String description_longue, String image, String organisateur, String animation, String adresse, String lieu, String inscription, String horaire, String apercu, String telephone) {
         this.description = description;
         this.titre_fr = titre;
         this.thematiques = thematiques;
@@ -43,6 +49,14 @@ public class Event {
         this.lieu = lieu;
         this.inscription = inscription;
         this.horaire = horaire;
+        this.apercu = apercu;
+        this.telephone = telephone;
+    }
+
+    public Event(String titre, String lieu, String thematiques) {
+        this.titre_fr = titre;
+        this.thematiques = thematiques;
+        this.lieu = lieu;
 
     }
 
@@ -175,6 +189,13 @@ public class Event {
         this.inscription = inscription;
     }
 
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
     /*
     private String region;
     private String description_longue_fr;
