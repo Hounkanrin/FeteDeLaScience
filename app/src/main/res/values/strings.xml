@@ -4,7 +4,7 @@
     <string name="titre">Titre : </string>
     <string name="thematique">Thématique: </string>
     <string name="ville">Ville</string>
-    <string name="filter">Filtre</string>
+    <string name="filter">Filtre par </string>
     <string name="periode">Période</string>
     <string name="nbplaces">Nombre de places Disponibles</string>
     <string name="placesMax">Nombre de places Maximum</string>
@@ -28,5 +28,15 @@
     <string name="inscription">Inscription Obligatoire  </string>
     <string name="telephone">Téléphone</string>
     <string name="activity_maps">Map evénement</string>
+
+
+
+
+    <string-array name="filter_array">
+        <item>Titre</item>
+        <item>Thème</item>
+        <item>Lieu</item>
+        <item>Organisateur</item>
+    </string-array>
 
 </resources>

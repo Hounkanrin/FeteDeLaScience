@@ -12,7 +12,11 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -30,7 +34,7 @@ import fr.istic.ccn2.ftedelascience.model.Event;
 
 
 
-public class Event_Activity extends AppCompatActivity implements SearchView.OnQueryTextListener {
+public class Event_Activity extends AppCompatActivity implements SearchView.OnQueryTextListener, AdapterView.OnItemSelectedListener {
 
     DatabaseReference reference;
     RecyclerView recyclerView;
@@ -38,7 +42,7 @@ public class Event_Activity extends AppCompatActivity implements SearchView.OnQu
     EventRecyclerAdapater eventRecyclerAdapater;
     SearchView searchView;
     private int selectedFilter = 0 ;
-    List<Event> listEvent;
+    private Spinner spinner;
 
 
     @Override
@@ -46,7 +50,13 @@ public class Event_Activity extends AppCompatActivity implements SearchView.OnQu
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_);
         //  searchView = findViewById(R.id.search);
+        spinner = findViewById(R.id.spinner_filter);
+        //spinner.setOnItemClickListener((AdapterView.OnItemClickListener) this);
 
+        spinner.setOnItemSelectedListener(this);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.filter_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
 
         recyclerView = this.<RecyclerView>findViewById(R.id.event_recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -152,10 +162,22 @@ public class Event_Activity extends AppCompatActivity implements SearchView.OnQu
                 startActivity( new Intent(this, MapsActivity.class));
                return true;
             case R.id.parcours:
-                        }
+                }
 
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int i, long l) {
+       // this.onQueryTextChange(eventList.toString());
+    }
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {}
+
+
+
+
+
 }
 
 
