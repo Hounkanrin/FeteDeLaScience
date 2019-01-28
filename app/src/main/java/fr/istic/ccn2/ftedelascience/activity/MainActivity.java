@@ -138,7 +138,23 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         //ajoute les entrées de menu_test à l'ActionBar
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu, menu);
+        inflater.inflate(R.menu.menu_detail, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.carte:
+                startActivity( new Intent(this, MapsActivity.class));
+                return true;
+            case R.id.liste:
+                startActivity(new Intent(this, Event_Activity.class));
+                return true;
+            case R.id.parcours:
+
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

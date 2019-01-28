@@ -1,5 +1,6 @@
 package fr.istic.ccn2.ftedelascience.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
@@ -141,6 +142,19 @@ public class Event_Activity extends AppCompatActivity implements SearchView.OnQu
 
         eventRecyclerAdapater.updateEventList(newList);
         return true;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.carte:
+                startActivity( new Intent(this, MapsActivity.class));
+               return true;
+            case R.id.parcours:
+                        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
 
