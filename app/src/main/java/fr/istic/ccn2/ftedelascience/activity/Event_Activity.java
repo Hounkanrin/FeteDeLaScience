@@ -8,12 +8,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
@@ -154,7 +152,6 @@ public class Event_Activity extends AppCompatActivity implements SearchView.OnQu
         return true;
     }
 
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
@@ -163,7 +160,6 @@ public class Event_Activity extends AppCompatActivity implements SearchView.OnQu
                return true;
             case R.id.parcours:
                 }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -173,10 +169,6 @@ public class Event_Activity extends AppCompatActivity implements SearchView.OnQu
     }
     @Override
     public void onNothingSelected(AdapterView<?> parent) {}
-
-
-
-
 
 }
 

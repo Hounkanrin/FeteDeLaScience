@@ -1,7 +1,5 @@
 package fr.istic.ccn2.ftedelascience.model;
 
-import android.support.v7.widget.SearchView;
-import android.widget.TextView;
 
 import java.io.Serializable;
 
