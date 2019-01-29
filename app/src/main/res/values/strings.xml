@@ -33,10 +33,10 @@
 
 
     <string-array name="filter_array">
-        <item>Titre</item>
-        <item>Thème</item>
         <item>Lieu</item>
-        <item>Organisateur</item>
+        <item>Thème</item>
+        <item>Date</item>
+        <item>Mots_clés</item>
     </string-array>
 
 </resources>

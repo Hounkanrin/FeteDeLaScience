@@ -101,7 +101,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //move to new location
         CameraPosition cameraPosition = new CameraPosition.Builder().zoom(5).target(currentLocationLatlng).build();
         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-        MapsEvent locationData = new MapsEvent(location.getLatitude(), location.getLongitude());
+       // MapsEvent locationData = new MapsEvent(location.getLatitude(), location.getLongitude(), location.getTitre_fr);
         Toast.makeText(this, "Location", Toast.LENGTH_SHORT).show();
         getMarkers();
     }
@@ -109,7 +109,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private void getMarkers(){
         mapsEvents = new ArrayList<MapsEvent>();
         int i = 1;
-        while (i < 100) {
+        while (i < 250) {
             db = FirebaseDatabase.getInstance().getReference().child("eventsScience").child(Integer.toString(i));
             i++;
             db.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -117,10 +117,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     double latitude = dataSnapshot.child("fields").child("geolocalisation").child("0").getValue(Double.class);
                     double longitude = dataSnapshot.child("fields").child("geolocalisation").child("1").getValue(Double.class);
-                    String Titre = dataSnapshot.child("fields").child("title_fr").getValue(String.class);
-                    MapsEvent mapsEvent = new MapsEvent(latitude, longitude);
-                    Log.i("laaaaat", String.valueOf(mapsEvent.getLatitude()));
-                    Log.i("laaaaat", String.valueOf(mapsEvent.getLongitude()));
+                    String titre = dataSnapshot.child("fields").child("title_fr").getValue(String.class);
+                    MapsEvent mapsEvent = new MapsEvent(latitude, longitude, titre);
                     mapsEvents.add(mapsEvent);
                     if (mapsEvents.size() != 0){
                         getAllGeolocalisation((ArrayList<MapsEvent>) mapsEvents);
@@ -136,19 +134,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private void getAllGeolocalisation(ArrayList<MapsEvent> locations) {
         for (MapsEvent mapsEvent : mapsEvents) {
-           // Log.i("events", String.valueOf(mapsEvent.getLatitude()));
-            //Date newDate = new Date(Long.valueOf((long) mapsEvent.getLatitude()));
-          //  Map singleLocation = (Map) entry.getValue();
-            LatLng latLng = new LatLng(mapsEvent.getLatitude(), mapsEvent.getLongitude());
-            addGreenMarker(latLng);
+
+           String titre =  mapsEvent.getTitre_fr();
+           LatLng latLng = new LatLng(mapsEvent.getLatitude(), mapsEvent.getLongitude());
+           addGreenMarker(titre, latLng);
         }
     }
 
-    private void addGreenMarker(LatLng latLng) {
-       // SimpleDateFormat dt = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
+    private void addGreenMarker(String titre, LatLng latLng) {
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(latLng);
-        //markerOptions.title(dt.format(newDate));
+        markerOptions.title(titre);
         markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
         mMap.addMarker(markerOptions);
     }

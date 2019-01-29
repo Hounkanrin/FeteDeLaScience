@@ -23,6 +23,8 @@ public class Event implements Serializable {
     private  String horaire;
     private  String inscription;
     private String telephone;
+    private String mots_cles;
+    private String date;
 
 
     public Event(String apercu, String description, String titre_fr, String thematiques) {
@@ -34,7 +36,7 @@ public class Event implements Serializable {
 
     }
 
-    public Event(String titre, String ville, String description, String thematiques, String description_longue, String image, String organisateur, String animation, String adresse, String lieu, String inscription, String horaire, String apercu, String telephone) {
+    public Event(String titre, String ville, String description, String thematiques, String description_longue, String image, String organisateur, String animation, String adresse, String lieu, String inscription, String horaire, String apercu, String telephone, String mots_cles, String date) {
         this.description = description;
         this.titre_fr = titre;
         this.thematiques = thematiques;
@@ -49,6 +51,8 @@ public class Event implements Serializable {
         this.horaire = horaire;
         this.apercu = apercu;
         this.telephone = telephone;
+        this.mots_cles = mots_cles;
+        this.date = date;
     }
 
     public Event(String titre, String lieu, String thematiques) {
@@ -194,6 +198,23 @@ public class Event implements Serializable {
     public void setTelephone(String telephone) {
         this.telephone = telephone;
     }
+
+    public String getMots_cles() {
+        return mots_cles;
+    }
+
+    public void setMots_cles(String mot_cle) {
+        this.mots_cles = mot_cle;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
     /*
     private String region;
     private String description_longue_fr;

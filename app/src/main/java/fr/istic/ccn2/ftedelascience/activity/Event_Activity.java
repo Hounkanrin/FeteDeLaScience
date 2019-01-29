@@ -80,8 +80,10 @@ public class Event_Activity extends AppCompatActivity implements SearchView.OnQu
                     String inscription = dataSnapshot.child("fields").child("inscription_necessaire").getValue(String.class);
                     String apercu = dataSnapshot.child("fields").child("apercu").getValue(String.class);
                     String telephone = dataSnapshot.child("fields").child("telephone_du_lieu").getValue(String.class);
+                    String mots_cles = dataSnapshot.child("fields").child("mots-cles_fr").getValue(String.class);
+                    String date = dataSnapshot.child("fields").child("dates").getValue(String.class);
 
-                    Event event = new Event(titre, ville, description, thematiques, description_longue, image, organisateur, animation, adresse, lieu, inscription, horaire, apercu, telephone);
+                    Event event = new Event(titre, ville, description, thematiques, description_longue, image, organisateur, animation, adresse, lieu, inscription, horaire, apercu, telephone, mots_cles, date);
                     eventList.add(event);
                     eventRecyclerAdapater = new EventRecyclerAdapater(Event_Activity.this, eventList);
                     recyclerView.setAdapter(eventRecyclerAdapater);
@@ -120,8 +122,8 @@ public class Event_Activity extends AppCompatActivity implements SearchView.OnQu
         switch (selectedFilter){
             case 0:
                 for (Event event : (eventList)) {
-                    if (event.getTitre_fr() != null) {
-                        if (event.getTitre_fr().toLowerCase().contains(userInput))
+                    if (event.getLieu() != null) {
+                        if (event.getLieu().toLowerCase().contains(userInput))
                             newList.add(event);
                     }
                 }
@@ -134,15 +136,15 @@ public class Event_Activity extends AppCompatActivity implements SearchView.OnQu
                 }
             case 2:
                 for (Event event : (eventList)) {
-                    if (event.getLieu() != null) {
-                        if (event.getLieu().toLowerCase().contains(userInput))
+                    if (event.getDate() != null) {
+                        if (event.getDate().toLowerCase().contains(userInput))
                             newList.add(event);
                     }
                 }
             case 3:
                 for (Event event : (eventList)) {
-                    if (event.getOrganisateur() != null) {
-                        if (event.getOrganisateur().toLowerCase().contains(userInput))
+                    if (event.getMots_cles() != null) {
+                        if (event.getMots_cles().toLowerCase().contains(userInput))
                             newList.add(event);
                     }
                 }
