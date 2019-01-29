@@ -109,7 +109,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private void getMarkers(){
         mapsEvents = new ArrayList<MapsEvent>();
         int i = 1;
-        while (i < 100) {
+        while (i < 150) {
             db = FirebaseDatabase.getInstance().getReference().child("eventsScience").child(Integer.toString(i));
             i++;
             db.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -282,11 +282,3 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
 }
-/*  db.child("fields").child("geolocalisation").addListenerForSingleValueEvent(
-                new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        if (dataSnapshot.getValue() != null){
-                            getAllGeolocalisation((Map<String,Object>) dataSnapshot.getValue());
-                        }
-                    }*/
