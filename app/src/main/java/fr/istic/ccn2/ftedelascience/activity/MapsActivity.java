@@ -109,7 +109,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private void getMarkers(){
         mapsEvents = new ArrayList<MapsEvent>();
         int i = 1;
-        while (i < 250) {
+        while (i < 100) {
             db = FirebaseDatabase.getInstance().getReference().child("eventsScience").child(Integer.toString(i));
             i++;
             db.addListenerForSingleValueEvent(new ValueEventListener() {
